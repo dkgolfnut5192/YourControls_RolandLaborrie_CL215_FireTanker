@@ -1,0 +1,660 @@
+# Version 0.1
+
+include:
+
+  - definitions/modules/Instruments/PMS50_GTN.yaml
+  - definitions/modules/Instruments/TDS_GTNXi.yaml
+  - definitions/modules/autopilot.yaml
+  - definitions/modules/controls.yaml
+  - definitions/modules/engines.yaml
+  - definitions/modules/fuel.yaml
+  - definitions/modules/general.yaml
+  - definitions/modules/handling.yaml
+  - definitions/modules/lights-CL_215.yaml
+  - definitions/modules/magnetos.yaml
+  - definitions/modules/navigation.yaml
+  - definitions/modules/radios.yaml
+  - definitions/modules/safety.yaml
+  - definitions/modules/transponder.yaml
+  - definitions/modules/trim.yaml
+
+SHARED:
+
+   
+   
+  - # LVAR's
+
+#  - #############  FIRE PANEL PANEL #############
+#  - ### LEFT ENGINE CONTROLS ###
+#  - #   
+    type: var
+    var_name: L:autofeathertest1      
+  - # ZONE 1 Cover Left
+    type: var
+    var_name: L:CACH1      
+  - # ZONE 1 Switch
+    type: var
+    var_name: L:ZONE1MOT1      
+  - # ZONE 1 Cover Left
+    type: var
+    var_name: L:CACH2      
+  - # ZONE 2 Switch
+    type: var
+    var_name: L:ZONE2MOT1      
+  - # DISCHARGE Cover 
+    type: var
+    var_name: L:CACH3      
+  - # DISCHARGE SWITCH
+    type: var
+    var_name: L:EXTINGUISH_ENGINE_FIRE     
+  - # FIRE TEST 1 button
+    type: var
+    var_name: L:FEUMOTtest      
+
+
+#  - ### RIGHT ENGINE CONTROLS ###
+  - #
+    type: var
+    var_name: L:autofeathertest2      
+  - # ZONE 2 Cover Left
+    type: var
+    var_name: L:CACH4      
+  - # ZONE 2 Switch
+    type: var
+    var_name: L:ZONE2MOT2      
+  - #  ZONE 1 Cover RIGHT
+    type: var
+    var_name: L:CACH5     
+  - # ZONE 1 Switch
+    type: var
+    var_name: L:ZONE1MOT2      
+
+#  - ### HEATER FIRE PANEL ###
+  - # DISCHARGE COVER
+    type: var
+    var_name: L:CACH6      
+  - #
+    type: var
+    var_name: L:EXTINGUISH_ENGINE_FIRE       
+  - #
+    type: var
+    var_name: L:CACH7      
+  - #
+    type: var
+    var_name: L:HEATERFIR2 
+ 
+
+#  - ### GPU_2_FIRE PANEL ###
+  - # TEST SWITCH
+    type: var
+    var_name: L:tempocanad2      
+  - # DISCHARGE COVER
+    type: var
+    var_name: L:CACH8      
+  - # ARMING COVER
+    type: var
+    var_name: L:CACH9       
+  - # ARMNG SWITCH
+    type: var
+    var_name: L:HEATERFIR4      
+  - # TEST SWITCH
+    type: var
+    var_name: L:tempocanad3  
+   
+#  - ############# MAIN PILOT PANELS #############
+#  - ### MAIN PILOT FRONT PANEL ###
+  - # HIDE YOKES
+    type: var
+    var_name: L:supstick      
+  - # SPEED BUG ADJUST Left
+    type: var
+    var_name: L:knobANEMO     
+  - # SPEED BUG ADJUST Left
+    type: var
+    var_name: L:knobANEMO1      
+  - # PILOT NAV1/NAV2/GPS Switch
+    type: var
+    var_name: L:NAV1_NAV2_GPS      
+  - # CoPILOT NAV1/NAV2/GPS Switch
+    type: var
+    var_name: L:NAV1_NAV2_GPSx      
+  - # HEADING HOLD SELECTOR KNOB
+    type: var
+    var_name: L:time hdg bug changed      
+  - # TEST BUTTON HSI PILOT
+    type: var
+    var_name: L:knob_boule      
+  - # TEST BUTTON HSI CoPILOT
+    type: var
+    var_name: L:knob_boulex      
+  - #
+    type: var
+    var_name: L:inclinboule      
+  - # G METER RESET
+    type: var
+    var_name: L:G_reset   
+  - # PILOT CLOCK OUTER RING
+    type: var
+    var_name: L:couronne     
+  - # CLOCK ON/OFF
+    type: var
+    var_name: L:Running      
+  - # CLOCK ON/OFF
+    type: var
+    var_name: L:RunningM      
+  - # EMERGENCY GEAR SWITCH
+    type: var
+    var_name: L:secoursgear      
+  - # EMERGENCY GEAR SWITCH COVER
+    type: var
+    var_name: L:CACH10      
+  - #
+    type: var
+    var_name: L:lightlandG  
+  - #
+    type: var
+    var_name: L:LANDPHG    
+  - #
+    type: var
+    var_name: L:lightlandD
+  - #
+    type: var
+    var_name: L:LANDPHD    
+  -
+    type: ToggleSwitch
+    var_name: A:PANEL AUTO FEATHER SWITCH
+    var_units: Bool
+    var_type: bool
+    event_name: TOGGLE_AUTO_FEATHER_SWITCH
+  - # AUTOFEATHER COVER
+    type: var
+    var_name: L:CACH11 
+  -
+    type: ToggleSwitch
+    var_name: A:PARKING BRAKE POSITION
+    var_units: Bool
+    var_type: bool
+    event_name: TOGGLE_PARKING_BRAKE
+
+#  - ### MAIN PILOT CENTER LEFT PANEL ###
+  - #
+    type: var
+    var_name: L:ANNUNCTEST      
+  - # LAND SEA GEAR SWITCH
+    type: var
+    var_name: L:LANDSEA      
+  - # FUEL BYPASS COVER LEFT
+    type: var
+    var_name: L:CACHbypass      
+  - # BYPASSS LEFT
+    type: var
+    var_name: L:swbypass     
+  - # FUEL BYPASS COVER RIGHT
+    type: var
+    var_name: L:CACHbypass2
+  - #  BYPASSS RIGHT
+    type: var
+    var_name: L:swbypass2       
+  - # WATER DOORS ARMED SWITCH
+    type: var
+    var_name: L:ARMEDWATER      
+
+#  - #############  MISCELLANEOUS #############
+#  - ### DOORS ###
+  - #
+    type: var
+    var_name: L:door1     
+  - #
+    type: var
+    var_name: L:door2      
+  - #
+    type: var
+    var_name: L:EMERGTRAP     
+  - #
+    type: var
+    var_name: L:EMERGTRAP_1      
+  - #
+    type: var
+    var_name: L:EMERGTRAP_2      
+  - #
+    type: var
+    var_name: L:EMERGTRAP_3     
+  - #
+    type: var
+    var_name: L:EMERGTRAP_4      
+  - #
+    type: var
+    var_name: L:EMERGTRAP_5      
+  - #
+    type: var
+    var_name: L:EMERGTRAP_6      
+
+#  - ### YOKE ###
+  - # WATER DROP BUTTON
+    type: var
+    var_name: L:CABIN_NO_SMOKING_ALERT_SWITCH_TOGGLE 
+  - # WATER DROP TIMER
+    type: var
+    var_name: L:tempobomb 
+  - # WATER RUDDER
+    type: var
+    var_name: A:WATER RUDDER HANDLE POSITION
+    var_units: Bool
+    var_type: bool
+    event_name: TOGGLE_WATER_RUDDER_HANDLE
+
+#  - #############  OVERHEAD PANEL #############
+#  - ## PILOT LEFT RADIO PANEL ##
+#  - ### COM1 ###
+  - #
+    type: var
+    var_name: L:ON_COM1      
+  - #
+    type: var
+    var_name: L:COM_RADIO_WHOLE_INC      
+  - #
+    type: var
+    var_name: L:COM_RADIO_WHOLE_DEC      
+  - #
+    type: var
+    var_name: L:COM_RADIO_FRACT_INC      
+  - #
+    type: var
+    var_name: L:COM_RADIO_FRACT_DEC      
+#  - ### COM2 ###
+  - #
+    type: var
+    var_name: L:ON_COM2      
+  - #
+    type: var
+    var_name: L:COM_RADIO_STBY_WHOLE_INC      
+  - #
+    type: var
+    var_name: L:COM_RADIO_STBY_WHOLE_DEC     
+  - #
+    type: var
+    var_name: L:COM_RADIO_STBY_FRACT_INC   
+  - #
+    type: var
+    var_name: L:COM_RADIO_STBY_FRACT_DEC   
+#   - ### TRANSPONDER ###
+  - #
+    type: var
+    var_name: L:switch_xpdrsby     
+  - #
+    type: var
+    var_name: L:XPDRPOTAR      
+     
+#  - ### NAV 1 ###
+  - #
+    type: var
+    var_name: L:ON_NAV1      
+  - #
+    type: var
+    var_name: L:NAV1_RADIO_WHOLE_INC   
+  - #
+    type: var
+    var_name: L:NAV1_RADIO_WHOLE_DEC   
+  - #
+    type: var
+    var_name: L:NAV1_RADIO_FRACT_INC
+  - #
+    type: var
+    var_name: L:NAV1_RADIO_FRACT_DEC
+    
+#  - ### NAV 2 ###
+  - #
+    type: var
+    var_name: L:ON_NAV2      
+  - #
+    type: var
+    var_name: L:NAV2_RADIO_WHOLE_INC   
+  - #
+    type: var
+    var_name: L:NAV2_RADIO_WHOLE_DEC   
+  - #
+    type: var
+    var_name: L:NAV2_RADIO_FRACT_INC
+  - #
+    type: var
+    var_name: L:NAV2_RADIO_FRACT_DEC
+#  - ### ADF 1 ###
+  - #
+    type: var
+    var_name: L:ON_ADF1      
+  - #
+    type: var
+    var_name: L:ADF1_RADIO_WHOLE_INC
+  - #
+    type: var
+    var_name: L:ADF1_RADIO_WHOLE_DEC   
+  -  #
+    type: var
+    var_name: L:ADF1_RADIO_FRACT_INC
+  - #
+    type: var
+    var_name: L:ADF1_RADIO_FRACT_DEC
+    
+#  - ### AUDIO PANEL ###
+  - #
+    type: var
+    var_name: L:RADIO_VOR1_IDENT_TOGGLE      
+  - #
+    type: var
+    var_name: L:RADIO_VOR2_IDENT_TOGGLE      
+  - #
+    type: var
+    var_name: L:COM1_TRANSMIT_SELECT      
+  - #
+    type: var
+    var_name: L:COM2_TRANSMIT_SELECT      
+  - #
+    type: var
+    var_name: L:MARKER_SOUND_TOGGLE      
+  - #
+    type: var
+    var_name: L:RADIO_ADF1_IDENT_TOGGLE      
+  - #
+    type: var
+    var_name: L:RADIO_DME1_IDENT_TOGGLE      
+  - #
+    type: var
+    var_name: L:switch_audioHM      
+  - # SELECTOR SWITCH
+    type: var
+    var_name: L:COMCOM12   
+
+#  - #############  OVERHEAD CENTER TOP PANEL #############
+#  - ### LIGHTING SWITCHES PANEL ###
+  - #
+    type: var
+    var_name: L:LIGHTING_PANEL_1      
+  - #
+    type: var
+    var_name: L:LIGHTING_GLARESHIELD_1      
+  - #
+    type: var
+    var_name: L:LIGHTING_PEDESTRAL_1      
+  - #
+    type: var
+    var_name: L:switch_CAB_belts      
+  - #
+    type: var
+    var_name: L:switch_CAB_smoking      
+  - #
+    type: var
+    var_name: L:switch_exit_light      
+  - # ANCHOR LIGHT
+    type: var
+    var_name: L:ANCHORLT   
+  - #
+    type: var
+    var_name: L:COMPASSLIGHT   
+  - # FORWARD HATCH LIGHT
+    type: var
+    var_name: L:HATCHLIGHT     
+  - # CABIN LIGHTING
+    type: var
+    var_name: L:lightCAB      
+  - # BOARDING LIGHTS
+    type: var
+    var_name: L:BOARDINGLT
+    
+#  - #############  OVERHEAD CENTER MIDDLE PANEL #############
+#  - ### POWER DISTRIBUTION PANEL ###
+  -
+    type: ToggleSwitch
+    var_name: A:ELECTRICAL MASTER BATTERY 
+    var_units: Bool
+    var_type: bool
+    event_name: TOGGLE_MASTER_BATTERY
+    event_param: 1
+  -
+    type: ToggleSwitch
+    var_name: A:GENERAL ENG MASTER ALTERNATOR:1  
+    var_units: Bool
+    var_type: bool
+    event_name: TOGGLE_ALTERNATOR_1
+    event_param: 1
+  -
+    type: ToggleSwitch
+    var_name: A:GENERAL ENG MASTER ALTERNATOR:2 
+    var_units: Bool
+    var_type: bool
+    event_name: TOGGLE_ALTERNATOR_2
+    event_param: 2
+
+  - # Volt Meter Selector
+    type: var
+    var_name: L:VOLTSELECT     
+  - # INVERTER 1
+    type: var
+    var_name: L:switch_inop1      
+  - # INVERTER 2
+    type: var
+    var_name: L:switch_inop2
+  -
+    type: ToggleSwitch
+    var_name: A:AVIONICS MASTER SWITCH 
+    var_units: Bool
+    var_type: bool
+    event_name: TOGGLE_AVIONICS_MASTER
+    event_param: 1
+
+#  - #############  OVERHEAD CENTER MIDDLE PANEL #############
+#  - ### DEICING, FUEL & ENGINE START ###
+  -
+    type: ToggleSwitch
+    var_name: A:PITOT HEAT:1
+    var_units: Bool
+    var_type: bool
+    event_name: TOGGLE_PITOT_HEAT
+    event_param: 1
+  -
+    type: ToggleSwitch
+    var_name: A:PITOT HEAT:2
+    var_units: Bool
+    var_type: bool
+    event_name: TOGGLE_PITOT_HEAT
+    event_param: 2    
+  -
+    type: ToggleSwitch
+    var_name: A:PITOT HEAT:3
+    var_units: Bool
+    var_type: bool
+    event_name: TOGGLE_PITOT_HEAT
+    event_param: 3
+  -
+    type: ToggleSwitch
+    var_name: A:PITOT HEAT:4
+    var_units: Bool
+    var_type: bool
+    event_name: TOGGLE_PITOT_HEAT
+    event_param: 4
+    
+  - # WINDSHILELD WIPER SWITCH
+    type: var
+    var_name: L:WIPPER      
+  - #
+    type: var
+    var_name: L:CACHCROSSFEED 
+#  - #
+#    type: var
+#    var_name: L:CROSS_FEED_TOGGLE        
+  -
+    type: ToggleSwitch   
+    var_name: A:FUEL CROSS FEED  
+    var_units: Bool
+    var_type: bool
+    event_name: TOGGLE_FUEL_CROSSFEED  
+  - #
+    type: var
+    var_name: L:CACHCUTOFFFUEL1      
+  - #
+    type: var
+    var_name: L:TOGGLE_FUEL_VALVE_ENG1      
+  - #
+    type: var
+    var_name: L:CACHCUTOFFFUEL2   
+  - #
+    type: var
+    var_name: L:TOGGLE_FUEL_VALVE_ENG2   
+  -
+    type: ToggleSwitch
+    var_name: A:RECIP ENG LEFT MAGNETO:1
+    var_units: Bool
+    var_type: bool
+    event_name: TOGGLE_LEFT_MAG_1
+    event_param: 1
+  -
+    type: ToggleSwitch
+    var_name: A:RECIP ENG LEFT MAGNETO:2
+    var_units: Bool
+    var_type: bool
+    event_name: TOGGLE_LEFT_MAG_2
+    event_param: 2
+  -
+    type: ToggleSwitch
+    var_name: A:RECIP ENG RIGHT MAGNETO:1
+    var_units: Bool
+    var_type: bool
+    event_name: TOGGLE_RIGHT_MAG_1
+    event_param: 1
+  -
+    type: ToggleSwitch
+    var_name: A:RECIP ENG RIGHT MAGNETO:2
+    var_units: Bool
+    var_type: bool
+    event_name: TOGGLE_RIGHT_MAG_2
+    event_param: 2
+  -
+    type: ToggleSwitch
+    var_name: A:GENERAL ENG STARTER:1
+    var_units: Bool
+    var_type: bool
+    event_name: TOGGLE_STARTER_1
+    event_param: 1
+  -
+    type: ToggleSwitch
+    var_name: A:GENERAL ENG STARTER:2
+    var_units: Bool
+    var_type: bool
+    event_name: TOGGLE_STARTER_2
+    event_param: 2
+
+#  - ### CoPILOT RIGHT RADIO PANEL ###
+#  - # This duplicates the LEFT panel except power which is listed here
+  - # COM1 POWER
+    type: var
+    var_name: L:ON_COM007      
+  - # COM2 POWER
+    type: var
+    var_name: L:ON_COM008     
+  - # NAV 1 POWER
+    type: var
+    var_name: L:ON_NAV007   
+  - # NAV 2 POWER
+    type: var
+    var_name: L:ON_NAV008     
+  - # ADF2 power
+    type: var
+    var_name: L:ON_ADF1ADF005   
+  - # TRANSPONDER 2 power
+    type: var
+    var_name: L:XPDRPOTAR2
+  - # HM Switch 2
+    type: var
+    var_name: L:switch_audioHM2   
+  - # Selector Switch 2
+    type: var
+    var_name: L:COMCOM13   
+   
+#  - #############  PEDESTAL PANEL #############
+#  - ### QUADRANT ###
+  - # EMERGENCY WATER DUMP LEVER 
+    type: var
+    var_name: L:waterdumpEMERG      
+  - #
+    type: var
+    var_name: L:waterdumpEMERG2      
+  - #
+    type: var
+    var_name: L:waterdumpEMERG2x
+  - #
+    type: var
+    var_name: L:waterdump2   
+  - #
+    type: var
+    var_name: L:waterdump3  
+#  - # SURFACE LOCK LEVER
+#    type: var
+#    var_name: L:SECUGAZ     
+  -
+    type: ToggleSwitch   
+    var_name: L:SECUGAZ 
+    var_units: Bool
+    var_type: bool
+    event_name: TOGGLE_SURFACE_LOCK
+
+  - #
+    type: var
+    var_name: L:lever_TEMP      
+  - #
+    type: var
+    var_name: L:lever_TEMP2
+
+#  - ### LOWER PEDISTAL ###
+  - #
+    type: var
+    var_name: L:OILCOOLFLP1   
+  - #
+    type: var
+    var_name: L:OILCOOLFLP2   
+  - #
+    type: var
+    var_name: L:PRMOUILL     
+  - #
+    type: var
+    var_name: L:BOTH_TANK      
+  - #
+    type: var
+    var_name: L:WATERELEC
+  - #
+    type: var
+    var_name: L:WATERHYDRAU     
+  - # EMERGENCY DOOR SWITCH COVER
+    type: var
+    var_name: L:CACH12      
+  - #
+    type: var
+    var_name: L:EMERGDOOR   
+  - # PROBE SWITCH
+    type: var
+    var_name: L:CABIN_SEATBELTS_ALERT_SWITCH_TOGGLE  
+    
+
+server:
+  -
+    type: var
+    var_name: A:FUEL TANK LEFT MAIN LEVEL
+    var_units: Percent
+    var_type: f64
+    unreliable: true
+  -
+    type: var
+    var_name: A:FUEL TANK RIGHT MAIN LEVEL
+    var_units: Percent
+    var_type: f64
+    unreliable: true
+  -
+    type: var
+    var_name: A:PAYLOAD STATION WEIGHT:1
+    var_units: Pounds
+    var_type: f64
+    unreliable: true
+  -
+    type: var
+    var_name: A:PAYLOAD STATION WEIGHT:2
+    var_units: Pounds
+    var_type: f64
+    unreliable: true
