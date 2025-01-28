@@ -1,5 +1,6 @@
 # YourControls_RolandLaborie_CL215_FireTanker
 YourControls_RolandLaborie_CL215_FireTanker
+# Made for MSFS2020 and not validated for 2024
 
 Profile to work with YourControls application and MSFS2020. If you find any bugs, please contact me on YourControls Discord: Dkgolfnut_Dennis
 
